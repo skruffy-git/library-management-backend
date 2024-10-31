@@ -1,11 +1,11 @@
 const express = require('express');
-const { addBook, updateBook, deleteBook, getBooks } = require('../controllers/bookController');
-const auth = require('../middleware/authMiddleware');
 const router = express.Router();
 
-router.post('/books', auth, addBook);
-router.put('/books/:id', auth, updateBook);
-router.delete('/books/:id', auth, deleteBook);
-router.get('/books', auth, getBooks);
+// Import your controller functions
+const { createBook, getBooks } = require('../controllers/bookController'); // Adjust the path as necessary
+
+// Define your routes
+router.post('/books', createBook); // Ensure `createBook` is defined and imported
+router.get('/books', getBooks); // Ensure `getBooks` is defined and imported
 
 module.exports = router;
