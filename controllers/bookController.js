@@ -1,6 +1,6 @@
 // controllers/bookController.js
 
-const Book = require('../models/bookModel'); // Example model import
+const Book = require('../models/Book'); // Example model import
 
 // Create a new book
 exports.createBook = async (req, res) => {

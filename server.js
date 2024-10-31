@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json()); // Middleware to parse JSON
 
 // Connect to MongoDB (add your connection string)
-mongoose.connect('your_connection_string', {
+mongoose.connect('mongodb+srv://skruffyjr:F7AsfaYdDLg7eI1M@test.jvise.mongodb.net/?retryWrites=true&w=majority&appName=Test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
