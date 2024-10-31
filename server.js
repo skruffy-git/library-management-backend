@@ -1,20 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bookRoutes = require('./routes/bookRoutes'); // Adjust path as needed
+const authRoutes = require('./routes/authRoutes');
+require('dotenv').config(); // For loading environment variables
 
 const app = express();
-app.use(express.json()); // Middleware to parse JSON
+const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB (add your connection string)
-mongoose.connect('mongodb+srv://skruffyjr:F7AsfaYdDLg7eI1M@test.jvise.mongodb.net/?retryWrites=true&w=majority&appName=Test', {
+// Middleware
+app.use(express.json()); // For parsing JSON requests
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-// Use the routes
-app.use('/api', bookRoutes);
+// API Routes
+app.use('/api/auth', authRoutes);
 
-const PORT = process.env.PORT || 5000;
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
