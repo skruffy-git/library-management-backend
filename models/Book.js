@@ -14,15 +14,15 @@ const bookSchema = new mongoose.Schema({
     },
     publishedDate: { 
         type: Date,
-        default: null // Allows for an optional published date
+        default: null // Optional published date
     },
     pages: { 
         type: Number, 
         min: [1, 'Pages must be at least 1'],
-        default: null // Allows for an optional page count
+        default: null // Optional page count
     },
 }, { 
-    timestamps: true // Automatically adds createdAt and updatedAt fields
+    timestamps: true // Adds createdAt and updatedAt fields
 });
 
 const Book = mongoose.model('Book', bookSchema);

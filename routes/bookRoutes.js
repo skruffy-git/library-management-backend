@@ -1,8 +1,7 @@
-// routes/bookRoutes.js
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/Book'); // Import the Book model
-const { createBook, getBooks } = require('../controllers/bookController'); // Import controller functions
+const { createBook, getBooks, deleteBook } = require('../controllers/bookController'); // Import deleteBook controller
 
 // Route to create a new book
 router.post('/books', async (req, res) => {
@@ -25,5 +24,8 @@ router.get('/books', async (req, res) => {
         res.status(500).json({ message: 'Error fetching books', error: error.message });
     }
 });
+
+// Route to delete a book by ID
+router.delete('/books/:id', deleteBook); // New delete route
 
 module.exports = router;
