@@ -1,4 +1,5 @@
 {
+  
   "name": "library-management-backend",
   "version": "1.0.0",
   "main": "index.js",
@@ -18,5 +19,6 @@
     "library-management-backend": "file:",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.3"
+ 
   }
 }
