@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/Book'); // Import the Book model
-const { createBook, getBooks, deleteBook } = require('../controllers/bookController'); // Import deleteBook controller
+const { createBook, getBooks, updateBook, deleteBook } = require('../controllers/bookController'); // Import deleteBook controller
 
 // Route to create a new book
 router.post('/books', async (req, res) => {
@@ -27,5 +27,8 @@ router.get('/books', async (req, res) => {
 
 // Route to delete a book by ID
 router.delete('/books/:id', deleteBook); // New delete route
+
+// Update a book by ID
+router.put('/books/:id', updateBook);
 
 module.exports = router;

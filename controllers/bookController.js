@@ -36,3 +36,23 @@ exports.deleteBook = async (req, res) => {
         res.status(500).json({ message: 'Error deleting book', error: error.message });
     }
 };
+
+// Update a book by ID
+exports.updateBook = async (req, res) => {
+    const { id } = req.params;
+    const { title, author, publishedDate, pages } = req.body;
+
+    try {
+        const updatedBook = await Book.findByIdAndUpdate(
+            id,
+            { title, author, publishedDate, pages },
+            { new: true, runValidators: true } // Returns updated document and validates inputs
+        );
+        if (!updatedBook) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+        res.status(200).json(updatedBook);
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating book', error: error.message });
+    }
+};
