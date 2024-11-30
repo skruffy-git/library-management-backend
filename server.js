@@ -6,7 +6,7 @@ const authRoutes = require('./routes/authRoutes'); // Import auth routes
 const bookRoutes = require('./routes/bookRoutes'); // Import book routes
 
 const app = express();
-const PORT = process.env.PORT || 5000; // Use environment variable for PORT
+const PORT = process.env.PORT || 5001; // Use environment variable for PORT
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://skruffyjr:F7AsfaYdDLg7eI1M@test.jvise.mongodb.net/?retryWrites=true&w=majority&appName=Test', { // Update your connection string
