@@ -6,7 +6,7 @@ const authRoutes = require('./routes/authRoutes'); // Import auth routes
 const bookRoutes = require('./routes/bookRoutes'); // Import book routes
 
 const app = express();
-const PORT = process.env.PORT || 5001; // Use environment variable for PORT
+const PORT = process.env.PORT || 5000; // Use environment variable for PORT
 
 require('dotenv').config(); // Load environment variables from .env file
 
